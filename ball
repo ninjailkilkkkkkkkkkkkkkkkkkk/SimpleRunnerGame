@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Move Circle</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="500" height="500"></canvas>
+  <script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let x = canvas.width / 2;
+    let y = canvas.height / 2;
+    let dx = 2; // x velocity
+    let dy = -2; // y velocity
+    const radius = 20;
+
+    function drawCircle() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = '#0095DD';
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function updatePosition() {
+      x += dx;
+      y += dy;
+
+      if (x + dx > canvas.width - radius || x + dx < radius) {
+        dx = -dx;
+      }
+
+      if (y + dy > canvas.height - radius || y + dy < radius) {
+        dy = -dy;
+      }
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      updatePosition();
+      drawCircle();
+    }
+
+    animate();
+  </script>
+</body>
+</html>
