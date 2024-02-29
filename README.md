@@ -1,2 +1,1 @@
-# SimpleRunnerGame
-Example of the runner game with flat graphics and game over screen. Made in HTML, CSS and JS.
+Create a folder "Runner", place the files "index.htm", "style.css", "script.js" in it. Create a subfolder "images" and put the files "knife-svgrepo-com.png" and "football-2" in it. Run the project.
